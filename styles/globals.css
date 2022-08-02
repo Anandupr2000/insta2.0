@@ -1,26 +1,66 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components{
+  .header{
+    @apply shadow-md border-b bg-white sticky
+    top-0 z-50 max-w-full mx-auto 
   }
-  body {
-    color: white;
-    background: black;
+  .customForm{
+    @apply flex flex-col space-y-4 items-center mt-5
+  }
+  .button{
+    @apply p-2 bg-blue-500 rounded-lg text-white
+  }
+  .userInp{
+    @apply rounded-sm border-[.4px] outline-none border-gray-300 focus:ring-0 focus:border-l-0 
+    focus:border-t-0 focus:border-r-0 focus:border-b-2 focus:border-blue-400
+    focus:pb-0 transition-all transform duration-300 ease-linear
+  }
+  .navBtn{
+    @apply my-auto w-7 h-7 cursor-pointer min-w-max
+    hover:opacity-60 transition-all transform duration-1000 ease-out;
+  }
+  .navMenu{
+    @apply sm:hidden
+  }
+  .navMenuItems{
+    @apply hidden sm:inline-block
+  }
+  .avatar{
+    @apply h-14 w-14
+  }
+  .avatarImg{
+    @apply rounded-full  object-contain 
+    cursor-pointer p-[1.4px]
+  }
+  .story{
+    @apply rounded-full border-2 border-red-500 hover:scale-110
+    transition transform duration-200 ease-out
+  }
+  .notification{
+    @apply absolute -top-1 -right-1 text-xs 
+    w-4 h-4 bg-sky-600 flex justify-center 
+    rounded-full text-white animate-pulse
+  }
+  .post{
+    @apply flex flex-col space-y-3 pb-5 border border-gray-300 rounded-lg mt-3
+  }
+  .postHeader{
+    @apply flex space-x-3 items-center font-bold h-[65px] pl-3 pt-3 pr-3
+  }
+  .postInteraction{
+    @apply relative flex-1 flex space-x-3 items-baseline w-24 h-[32px]
+  }
+  .postCommentBox{
+    @apply flex max-w-sm items-center mt-[10px]
+  }
+  .postCommentInput{
+    @apply flex-1 pl-[45px] rounded-full border-gray-300
+    focus:ring-0 focus:border-gray-400 outline-none
+  }
+  .postCommentBtn{
+    @apply text-blue-400 cursor-pointer ml-3 
   }
 }
