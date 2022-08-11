@@ -1,7 +1,7 @@
 import React from 'react'
 import { getProviders, signIn as SignInToProvider } from "next-auth/react"
 import { useRouter } from 'next/router'
-function signIn({ providers }) {
+function SignIn({ providers }) {
     const logo = "https://links.papareact.com/ocw"
     const router = useRouter()
     return (
@@ -42,4 +42,4 @@ export async function getServerSideProps() {
     }
 }
 
-export default signIn
+export default SignIn
