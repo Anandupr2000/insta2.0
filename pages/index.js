@@ -16,7 +16,7 @@ export default function Home() {
 
     <Modal/>
       {/* header */}
-      <Header />
+      {/* <Header /> */}
       {/* feed */}
       <Feed/>
       {/* modal */}
