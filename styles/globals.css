@@ -16,7 +16,7 @@
   .userInp{
     @apply rounded-sm border-[.4px] outline-none border-gray-300 focus:ring-0 focus:border-l-0 
     focus:border-t-0 focus:border-r-0 focus:border-b-2 focus:border-blue-400
-    focus:pb-0 transition-all transform duration-300 ease-linear
+    focus:pb-0 transition-all transform duration-100 ease-linear
   }
   .navBtn{
     @apply my-auto w-7 h-7 cursor-pointer min-w-max
@@ -54,13 +54,30 @@
     @apply relative flex-1 flex space-x-3 items-baseline w-24 h-[32px]
   }
   .postCommentBox{
-    @apply flex max-w-sm items-center mt-[10px]
+    @apply flex min-w-fit max-w-3xl items-center mt-[10px] ml-2 mr-4
   }
   .postCommentInput{
     @apply flex-1 pl-[45px] rounded-full border-gray-300
     focus:ring-0 focus:border-gray-400 outline-none
   }
   .postCommentBtn{
-    @apply text-blue-400 cursor-pointer ml-3 
+    @apply text-blue-400 cursor-pointer ml-3 w-12
+  }
+}
+
+@layer utilities {
+  /* h-7 transform ease-in-out duration-1000 */
+  .likeAnimation{
+    position: relative;
+    width:45rem;
+    z-index: 10;
+    animation: customAnimation;
+    animation-duration:1000
+    /* max-width: 100%; */
+  }
+  @keyframes customAnimation{
+    0% {opacity: 0;}
+    50% {opacity:1;}
+    100% {opacity:0;}
   }
 }

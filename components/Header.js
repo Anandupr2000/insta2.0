@@ -14,8 +14,14 @@ import { ExploreIcon, MessengerIcon } from "../images/Icons"
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useRecoilState } from "recoil"
+import { modalState } from '../atom/modalAtom'
 
 function Header() {
+    const [open, setOpen] = useRecoilState(modalState)
+
+    // read only
+    // const open = useRecoilState(modalState)
     const { data: session, status } = useSession()
     const router = useRouter()
 
@@ -33,13 +39,13 @@ function Header() {
                 </div>
                 {/* image for larger screen */}
                 <div className='relative mt-1 p-3 w-28 rounded-md cursor-pointer'
-                onClick={()=>router.push('/')}>
+                    onClick={() => router.push('/')}>
                     <Image src="https://links.papareact.com/ocw"
                         layout='fill' objectFit='contain' alt={"Insta logo"} />
                 </div>
                 {/* middle */}
-                <div oonClick={()=>router.push('/')} className="relative flex-1 my-auto mx-auto hidden max-w-sm sm:inline-grid cursor-pointer">
-                    <div  className='absolute inset-y-0 pl-3 flex items-center'>
+                <div onClick={() => router.push('/')} className="relative flex-1 my-auto mx-auto hidden max-w-sm sm:inline-grid cursor-pointer">
+                    <div className='absolute inset-y-0 pl-3 flex items-center'>
                         <SearchIcon className="h-4 w-4 text-gray-500" />
                     </div>
 
@@ -51,7 +57,7 @@ function Header() {
                 </div>
                 {/* right */}
                 <div className='flex space-x-3 items-baseline items-center'>
-                    <HomeIcon onClick={()=>router.push('/')} className='navBtn navMenuItems' />
+                    <HomeIcon onClick={() => router.push('/')} className='navBtn navMenuItems' />
                     <MenuIcon className='navBtn navMenu' />
                     {
                         session ?
@@ -61,7 +67,7 @@ function Header() {
                                     <div className="notification">3</div>
                                 </div>
                                 <ExploreIcon className='navBtn navMenuItems' />
-                                <PlusCircleIcon className='navBtn navMenuItems' />
+                                <PlusCircleIcon className='navBtn navMenuItems' onClick={() => setOpen(true)} />
                                 <UserGroupIcon className="navBtn navMenuItems" />
                                 <HeartIcon className="navBtn navMenuItems" />
 
@@ -72,7 +78,7 @@ function Header() {
                             // <Link href="/auth/signin">
                             //     <a>Sign In</a>
                             // </Link>
-                        <button className='navBtn' onClick={signIn}>Sign In</button>
+                            <button className='navBtn' onClick={signIn}>Sign In</button>
                     }
                 </div>
 

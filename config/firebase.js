@@ -22,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 // getting single instance of auth
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 const db = getFirestore()
 const storage = getStorage()
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Story from './Story';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import fakeData from "../../fakeData/data"
 import {
   ChevronLeftIcon,
   ChevronRightIcon
