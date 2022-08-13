@@ -187,7 +187,7 @@ function Post({ postId, username, avatar, caption, img }) {
                       console.log(comments[0].data().username)
                     }
                     {
-                      console.log(session.user.username)
+                      console.log(session?.user?.username)
                     }
                     {
                       likedComments[0] == comments[0].id ?
