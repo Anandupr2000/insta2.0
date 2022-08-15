@@ -41,6 +41,7 @@ function SignIn({ providers }) {
                             </div>
                         })} */}
                     </div>
+
                 </div>
             </div>
         </div>
@@ -50,6 +51,7 @@ function SignIn({ providers }) {
 // getServerSideProps() is serverside fn
 export async function getServerSideProps() {
     const providers = await getProviders()
+    console.log(`connecting to ${providers}`)
     return {
         props: { providers, }
     }
