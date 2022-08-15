@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 function SignIn({ providers }) {
     const logo = "https://links.papareact.com/ocw"
     const router = useRouter()
-    console.log("inside S  ignIn")
+    console.log("inside SignIn")
     return (
         <div className='grid grid-cols-1 lg: md:grid-cols-2 mx-auto'>
             <div className='hidden md:inline-block min-w-max mt-10 mb-16'>
@@ -38,6 +38,7 @@ function SignIn({ providers }) {
 // getServerSideProps() is serverside fn
 export async function getServerSideProps() {
     const providers = await getProviders()
+    console.log(`connecting to ${providers}`)
     return {
         props: { providers, }
     }
