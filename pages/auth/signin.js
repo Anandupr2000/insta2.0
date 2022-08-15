@@ -5,11 +5,11 @@ function SignIn({ providers }) {
     const logo = "https://links.papareact.com/ocw"
     const router = useRouter()
     console.log("inside SignIn")
-    getProviders()
-        .then(res =>
-            console.log(res))
-        .catch((err) =>
-            console.log(err))
+    // getProviders()
+    //     .then(res =>
+    //         console.log(res))
+    //     .catch((err) =>
+    //         console.log(err))
     return (
         <div className='grid grid-cols-1 lg: md:grid-cols-2 mx-auto'>
             <div className='hidden md:inline-block min-w-max mt-10 mb-16'>
@@ -37,7 +37,7 @@ function SignIn({ providers }) {
                             ))} */}
                         {
                         providers && Object.values(providers).map((provider) => {
-                            console.log(provider)
+                            // console.log(provider)
                             return <div className="button" key={provider.name}>
                                 <button onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
                                     {provider.name}
@@ -54,11 +54,11 @@ function SignIn({ providers }) {
 
 // getServerSideProps() is serverside fn
 export async function getServerSideProps(context) {
-    getProviders()
-        .then(res =>
-            console.log("response => ",res))
-        .catch((err) =>
-            console.log(err))
+    // getProviders()
+    //     .then(res =>
+    //         console.log("response => ",res))
+    //     .catch((err) =>
+    //         console.log(err))
     const providers = await getProviders()
     console.log(`context is ${context}`)
     // console.log(context)
