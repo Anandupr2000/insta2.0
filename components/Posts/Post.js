@@ -178,7 +178,14 @@ function Post({ postId, username, avatar, caption, img }) {
                     </Moment>
                   </div>
                   {
-                    console.log(comments[0].id)}
+                    console.log("first commenter = >")
+                  }
+                  {
+                    console.log(comments[0].id)
+                  }
+                  {
+                    console.log("likedComments => ")
+                  }
                   {
                     console.log(likedComments)
                   }

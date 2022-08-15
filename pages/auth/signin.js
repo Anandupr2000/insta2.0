@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 function SignIn({ providers }) {
     const logo = "https://links.papareact.com/ocw"
     const router = useRouter()
-    console.log("inside SignIn")
+    console.log("inside S  ignIn")
     return (
         <div className='grid grid-cols-1 lg: md:grid-cols-2 mx-auto'>
             <div className='hidden md:inline-block min-w-max mt-10 mb-16'>
