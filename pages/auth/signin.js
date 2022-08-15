@@ -21,7 +21,7 @@ function SignIn({ providers }) {
                 <p className='self-start pl-5'>or Sign in with :</p>
                 <div className='flex space-x-5'>
                     {Object.values(providers).map((provider) => {
-                        console.log(provider)
+                        // console.log(providers)
                         return <div className="button" key={provider.name}>
                             <button onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
                                 {provider.name}
