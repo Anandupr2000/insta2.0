@@ -11,25 +11,37 @@ function SignIn({ providers }) {
                 <img src="insta.png" className="mx-auto h-86" alt="" />
             </div>
             <div className="mx-auto">
-            <div className='flex flex-1 flex-col w-96 my-32 space-y-5 items-center justify-center border ml-12 mr-12 p-3 border-gray-300 rounded-lg mx-auto'>
-                <img className="w-64 cursor-pointer" onClick={() => router.push('/')} src={logo} alt="" />
-                <form action="" className='customForm'>
-                    <input className="userInp" type="email" name="" placeholder="Email address" id="" />
-                    <input className="userInp" type="password" name="" placeholder="Password" id="" />
-                    <input className='button self-start' type="submit" value="SignIn" />
-                </form>
-                <p className='self-start pl-5'>or Sign in with :</p>
-                <div className='flex space-x-5'>
-                    {Object.values(providers).map((provider) => {
-                        console.log(provider)
-                        return <div className="button" key={provider.name}>
-                            <button onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
-                                {provider.name}
-                            </button>
-                        </div>
-                    })}
+                <div className='flex flex-1 flex-col w-96 my-32 space-y-5 items-center justify-center border ml-12 mr-12 p-3 border-gray-300 rounded-lg mx-auto'>
+                    <img className="w-64 cursor-pointer" onClick={() => router.push('/')} src={logo} alt="" />
+                    <form action="" className='customForm'>
+                        <input className="userInp" type="email" name="" placeholder="Email address" id="" />
+                        <input className="userInp" type="password" name="" placeholder="Password" id="" />
+                        <input className='button self-start' type="submit" value="SignIn" />
+                    </form>
+                    <p className='self-start pl-5'>or Sign in with :</p>
+                    <div className='flex space-x-5'>
+                        {
+                            console.log(providers)
+                        }
+                        {
+                            providers && Object.values(providers).map((provider) => (
+                                <div key={provider.name}>
+                                    <button
+                                        onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
+                                        Login With {provider.name}
+                                    </button>
+                                </div>
+                            ))}
+                        {/* {Object.values(providers).map((provider) => {
+                            console.log(provider)
+                            return <div className="button" key={provider.name}>
+                                <button onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
+                                    {provider.name}
+                                </button>
+                            </div>
+                        })} */}
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     )
