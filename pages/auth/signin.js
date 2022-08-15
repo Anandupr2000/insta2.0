@@ -5,7 +5,11 @@ function SignIn({ providers }) {
     const logo = "https://links.papareact.com/ocw"
     const router = useRouter()
     console.log("inside SignIn")
-    console.log(providers)
+    getProviders()
+        .then(res =>
+            console.log(res))
+        .catch((err) =>
+            console.log(err))
     return (
         <div className='grid grid-cols-1 lg: md:grid-cols-2 mx-auto'>
             <div className='hidden md:inline-block min-w-max mt-10 mb-16'>
@@ -21,8 +25,8 @@ function SignIn({ providers }) {
                     </form>
                     <p className='self-start pl-5'>or Sign in with :</p>
                     <div className='flex space-x-5'>
-                        
-                        {
+
+                        {/* {
                             providers && Object.values(providers).map((provider) => (
                                 <div key={provider.name}>
                                     <button
@@ -30,15 +34,16 @@ function SignIn({ providers }) {
                                         Login With {provider.name}
                                     </button>
                                 </div>
-                            ))}
-                        {/* {Object.values(providers).map((provider) => {
+                            ))} */}
+                        {
+                        providers && Object.values(providers).map((provider) => {
                             console.log(provider)
                             return <div className="button" key={provider.name}>
                                 <button onClick={() => SignInToProvider(provider.id, { callbackUrl: "/" })}>
                                     {provider.name}
                                 </button>
                             </div>
-                        })} */}
+                        })}
                     </div>
 
                 </div>
@@ -49,14 +54,15 @@ function SignIn({ providers }) {
 
 // getServerSideProps() is serverside fn
 export async function getServerSideProps(context) {
-    getProviders().then((res)=>{
-        console.log("Response : ")
-        console.log(res)
-    })
+    getProviders()
+        .then(res =>
+            console.log("response => ",res))
+        .catch((err) =>
+            console.log(err))
     const providers = await getProviders()
     console.log(`context is ${context}`)
     // console.log(context)
-    console.log(`connecting to ${providers}`)
+    console.log("connecting to ",providers)
     return {
         props: { providers, }
     }

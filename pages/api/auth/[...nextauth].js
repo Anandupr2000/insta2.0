@@ -8,6 +8,7 @@ export default NextAuth({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
+    
         // ...add more providers here
     ],
     // theme:{
@@ -15,9 +16,9 @@ export default NextAuth({
     //     brandColor:"#F13287",
     //     colorScheme:"auto"
     // }
-    // pages: {
-    //         signIn:"/auth/signin",
-    //     },
+    pages: {
+            signIn:"/auth/signin",
+        },
     callbacks:{
         async session({session,token,user}){
             session.user.username= session?.user?.name.split(" ").join("").toLocaleLowerCase()
